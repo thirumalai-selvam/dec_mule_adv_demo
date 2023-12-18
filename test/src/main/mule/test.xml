@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="27cd372b-5b6f-4f6d-8e38-365efa8464a1" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="testFlow" doc:id="11a91d40-a18a-42a7-8a6f-8c18467e17aa" >
+		<http:listener doc:name="Listener" doc:id="2bad7e38-d81d-44ef-85ce-7c8f42749fdf" config-ref="HTTP_Listener_config" path="/demo"/>
+		<set-payload value='#["welcome to DevOps"]' doc:name="Set Payload" doc:id="98cb4edb-1878-4816-a076-d4126e35175f" />
+	</flow>
+</mule>
